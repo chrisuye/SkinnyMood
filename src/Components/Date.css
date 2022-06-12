@@ -14,3 +14,21 @@ span.date {
     margin: 5px 10px 0 0;
     padding: 5px 10px
 }
+
+@media only screen and (max-width: 600px) {
+    div.date {
+        width: 40px;
+    }
+  }
+
+  @media only screen and (max-width: 450px) {
+    div.date {
+        width: 35px;
+    }
+  }
+
+  @media only screen and (max-width: 400px) {
+    div.date {
+        width: 30px;
+    }
+  }

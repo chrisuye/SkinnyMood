@@ -12,6 +12,7 @@ const App = () => {
       <div className='App-Outer'>
           {open ? <Notes date={position} setOpen={setOpen}/> : 
         <div className='App-Outer'>
+          <h2>Skinny Mood</h2>
           <div className='App-header'>
             {Array.from({ length: 7 }).map((_, i) => (
               <Date key={i} Date={i + 1} setOpen={setOpen} setPosition={setPosition}/>

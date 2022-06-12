@@ -1,0 +1,72 @@
+div.notes {
+    font-size: 1em;
+    color: black;
+    margin-top: 0.5em;
+    background-color: antiquewhite;
+    width: max-content;
+    padding: 0.5em;
+    height: max-content;
+    border-radius: 5px;
+}
+
+div.notesOption {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5em;
+}
+
+div.workout {
+    background-color: aliceblue;
+    padding: 0.5em;
+    margin: 0.5em;
+    cursor: pointer;
+}
+
+div.note {
+    background-color: aliceblue;
+    padding: 0.5em;
+    margin: .5em;
+    cursor: pointer;
+}
+
+div.checkList {
+    background-color: aliceblue;
+    padding: 0.5em;
+    margin: .5em;
+    cursor: pointer;
+}
+
+div.contentIn {
+    background-color: #282c3453;
+    padding: 0.5em;
+    margin: 0.5em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+div.workoutContentInner {
+    font-size: large;
+    color: #000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.184);
+}
+
+div.notesContentInner {
+    font-size: large;
+    color: #000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.184);
+}
+
+div.checkListContentInner {
+    font-size: large;
+    color: #000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.184);
+}
+
+div.Blank {
+    padding: 0.5em;
+    margin: .5em;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.184);
+}

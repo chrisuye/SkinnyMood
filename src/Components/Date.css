@@ -1,0 +1,14 @@
+div.date {
+    font-size: 1em;
+    color: #999;
+    margin-top: 0.5em;
+    background-color: antiquewhite;
+    padding: 0.5em;
+    height: max-content;
+}
+
+span.date {
+    display: inline-block;
+    margin: 5px 10px 0 0;
+    padding: 5px 10px
+}

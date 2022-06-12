@@ -4,7 +4,6 @@ import Date from './Components/Date';
 import Notes from './Components/Notes';
 
 const App = () => {
-    const [date, setDate] = useState(30);
     const [open, setOpen] = useState(false);
     const [position, setPosition] = useState(0);
 

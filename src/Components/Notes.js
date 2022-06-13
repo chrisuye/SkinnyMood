@@ -1,18 +1,55 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './Notes.css';
 
 const Notes = ({ date, setOpen }) => {
     const [option, setOption] = useState(0);
-    const [notes, setNotes] = useState([]);
+    const [notes, setNotes] = useState(JSON.parse(localStorage.getItem('notes')) || []);
     const [workout, setWorkout] = useState(JSON.parse(localStorage.getItem('workout')) || []);
-    const [checkList, setCheckList] = useState([]);
+    const [checkList, setCheckList] = useState(JSON.parse(localStorage.getItem('checkList')) || []);
 
-    const editWorkout = (newWorkout, index) => {
-        var temp = workout;
-        temp[index] = newWorkout;
-        setWorkout(temp);
-        localStorage.setItem('workout', JSON.stringify(temp));
+    const editSave = (content, index, option) => {
+        if (option === 1) {
+            setNotes(notes.map((note, i) => {
+                if (i === index) {
+                    return {
+                        date : date,
+                        content : content
+                    }
+                }
+                return note
+            }
+            ));
+        } else if (option === 0) {
+            setWorkout(workout.map((note, i) => {
+                if (i === index) {
+                    return {
+                        date : date,
+                        content : content
+                    }
+                }
+                return note;
+            }
+            ));
+        }
+        else if (option === 2) {
+            setCheckList(checkList.map((note, i) => {
+                if (i === index) {
+                    return {
+                        date : date,
+                        note : content
+                    }
+                }
+                return note;
+            }
+            ));
+        }
     }
+
+    useEffect(() => {
+        localStorage.setItem('notes', JSON.stringify(notes));
+        localStorage.setItem('workout', JSON.stringify(workout));
+        localStorage.setItem('checkList', JSON.stringify(checkList));
+    }, [notes, workout, checkList]);
 
     return (
         <div className='notes'>
@@ -31,41 +68,50 @@ const Notes = ({ date, setOpen }) => {
             <div className='contents'>
                 <div className='Content'>
                     {option === 0 && <div className='contentIn workoutContent'>
-                        {workout.map((workout, i) => (
-                            <div key={i} className='workoutContentInner' contentEditable = {true} onBlur={(e) => editWorkout(e.currentTarget.textContent)}>
-                                {workout}
+                        {workout.filter((workout) => workout.date === date).map((workout, i) => (
+                            <div key={i} className='workoutContentInner' contentEditable = {true} onBlur={(e) => editSave(e.currentTarget.textContent, i, 0)}>
+                                {workout.content}
                             </div>
                         ))}
                         <div className='workoutContentInner Blank' contentEditable={true} onBlur={(e) => {
-                            setWorkout([e.currentTarget.textContent, ...workout])
-                            localStorage.setItem('workout', JSON.stringify([e.currentTarget.textContent, ...workout]));
+                            let temp = {
+                                date : date,
+                                content : e.currentTarget.textContent
+                            }
+                            setWorkout([temp, ...workout])
                             e.currentTarget.textContent = '';
                         }}>
                         </div>
                     </div>}
                     {option === 1 && <div className='contentIn notesContent'>
-                        {notes.map((note, i) => (
-                            <div key={i} className='notesContentInner' contentEditable = {true} onBlur={(e) => setNotes([e.currentTarget.textContent, ...notes])}>
-                                {note}
+                        {notes.filter((note) => note.date === date).map((note, i) => (
+                            <div key={i} className='notesContentInner' contentEditable = {true} onBlur={(e) => editSave(e.currentTarget.textContent, i, 1)}>
+                                {note.content}
                             </div>
                         ))}
                         <div className='notesContentInner Blank' contentEditable={true} onBlur={(e) => {
-                            setNotes([e.currentTarget.textContent, ...notes])
-                            localStorage.setItem('notes', JSON.stringify([e.currentTarget.textContent, ...notes]));
+                            let temp = {
+                                date : date,
+                                content : e.currentTarget.textContent
+                            }
+                            setNotes([temp, ...notes])
                             e.currentTarget.textContent = '';
                         }
                         }>
                         </div>
                     </div>}
                     {option === 2 && <div className='contentIn checkListContent'>
-                        {checkList.map((check, i) => (
-                            <div key={i} className='checkListContentInner' contentEditable = {true} onBlur={(e) => setCheckList([e.currentTarget.textContent, ...checkList])}>
-                                {check}
+                        {checkList.filter((checkList) => checkList.date === date).map((check, i) => (
+                            <div key={i} className='checkListContentInner' contentEditable = {true} onBlur={(e) => editSave(e.currentTarget.textContent, i, 2)}>
+                                {check.content}
                             </div>
                         ))}
                         <div className='checkListContentInner Blank' contentEditable={true} onBlur={(e) => {
-                            setCheckList([e.currentTarget.textContent, ...checkList])
-                            localStorage.setItem('checkList', JSON.stringify([e.currentTarget.textContent, ...checkList]));
+                            let temp = {
+                                date : date,
+                                content : e.currentTarget.textContent
+                            }
+                            setCheckList([temp, ...checkList])
                             e.currentTarget.textContent = '';
                         }
                         }>

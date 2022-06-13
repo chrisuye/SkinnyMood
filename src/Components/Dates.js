@@ -2,11 +2,11 @@ import React from 'react';
 import './Date.css';
 
 
-const Dates = ({ Date, setOpen, setPosition, currentDate, previousDate }) => {
+const Dates = ({ Date, setOpen, setPosition, currentDate, previousDate, position }) => {
 
     const handleClick = () => {
         setOpen(true);
-        setPosition(Date);
+        setPosition(position);
     }
     return (
         <div className={currentDate ? 'currentDate' : previousDate ? 'previousDate' :'date'} onClick={() => handleClick()}>

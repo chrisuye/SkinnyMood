@@ -101,3 +101,39 @@ button.close {
     font-weight: bolder;
     width: 40px;
 }
+
+@media only screen and (max-width: 600px) {
+    div.workoutContentInner {
+        max-width: 400px;
+    }
+    div.notesContentInner {
+        max-width: 400px;
+    }
+    div.checkListContentInner {
+        max-width: 400px;
+    }
+  }
+
+  @media only screen and (max-width: 450px) {
+    div.workoutContentInner {
+        max-width: 300px;
+    }
+    div.notesContentInner {
+        max-width: 300px;
+    }
+    div.checkListContentInner {
+        max-width: 300px;
+    }
+  }
+
+  @media only screen and (max-width: 400px) {
+    div.workoutContentInner {
+        max-width: 300px;
+    }
+    div.notesContentInner {
+        max-width: 300px;
+    }
+    div.checkListContentInner {
+        max-width: 300px;
+    }
+  }

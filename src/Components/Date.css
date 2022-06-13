@@ -44,16 +44,34 @@ span.date {
     div.date {
         width: 40px;
     }
+    div.currentDate {
+        width: 40px;
+    }
+    div.previousDate {
+        width: 40px;
+    }
   }
 
   @media only screen and (max-width: 450px) {
     div.date {
         width: 35px;
     }
+    div.currentDate {
+        width: 35px;
+    }
+    div.previousDate {
+        width: 35px;
+    }
   }
 
   @media only screen and (max-width: 400px) {
     div.date {
+        width: 30px;
+    }
+    div.currentDate {
+        width: 30px;
+    }
+    div.previousDate {
         width: 30px;
     }
   }

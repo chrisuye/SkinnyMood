@@ -1,12 +1,37 @@
 div.date {
     font-size: 1em;
-    color: #999;
+    color: #282c34;
     margin-top: 0.5em;
     background-color: antiquewhite;
     padding: 0.5em;
     margin: .1em;
     height: max-content;
     width: 50px;
+    cursor: pointer;
+}
+
+div.currentDate {
+    font-size: 1em;
+    color: #282c34;
+    margin-top: 0.5em;
+    background-color: rgb(188, 252, 171);
+    padding: 0.5em;
+    margin: .1em;
+    height: max-content;
+    width: 50px;
+    cursor: pointer;
+}
+
+div.previousDate {
+    font-size: 1em;
+    color: #282c34;
+    margin-top: 0.5em;
+    background-color: rgb(250, 136, 136);
+    padding: 0.5em;
+    margin: .1em;
+    height: max-content;
+    width: 50px;
+    cursor: pointer;
 }
 
 span.date {

@@ -2,18 +2,18 @@ import React from 'react';
 import './Date.css';
 
 
-const Date = ({ Date, setOpen, setPosition }) => {
+const Dates = ({ Date, setOpen, setPosition, currentDate, previousDate }) => {
 
     const handleClick = () => {
         setOpen(true);
         setPosition(Date);
     }
     return (
-        <div className='date' onClick={() => handleClick()}>
+        <div className={currentDate ? 'currentDate' : previousDate ? 'previousDate' :'date'} onClick={() => handleClick()}>
             <span className='date'>{Date}</span>
         </div>
     );
 }
 
 
-export default Date;
+export default Dates;

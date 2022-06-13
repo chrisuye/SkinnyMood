@@ -17,22 +17,20 @@ const Notes = ({ date, setOpen }) => {
     return (
         <div className='notes'>
             <div className='notesOption'>
-                <div className='workout' onClick={() => setOption(0)}>
+                <div className={option === 0 ? 'active' : 'workout'} onClick={() => setOption(0)}>
                     <span className='workout'>Workout</span>
                 </div>
-                <div className='note' onClick={() => setOption(1)}>
+                <div className={option === 1 ? 'active' : 'note'} onClick={() => setOption(1)}>
                     <span className='notes'>Notes</span>
                 </div>
-                <div className='checkList' onClick={() => setOption(2)}>
-                    <span className='checkList'>Checklist</span>
+                <div className={option === 2 ? 'active' : 'checkList'} onClick={() => setOption(2)}>
+                    <span className='checkList'>CheckList</span>
                 </div>
-                <button className='add' onClick={() => setOpen(false)}> Close </button>
+                <button className='close' onClick={() => setOpen(false)}> x </button>
             </div>
             <div className='contents'>
                 <div className='Content'>
-                    <span className='Content'>Content</span>
                     {option === 0 && <div className='contentIn workoutContent'>
-                        <span className='workoutContent'>Workout Content</span>
                         {workout.map((workout, i) => (
                             <div key={i} className='workoutContentInner' contentEditable = {true} onBlur={(e) => editWorkout(e.currentTarget.textContent)}>
                                 {workout}
@@ -46,7 +44,6 @@ const Notes = ({ date, setOpen }) => {
                         </div>
                     </div>}
                     {option === 1 && <div className='contentIn notesContent'>
-                        <span className='notesContent'>Notes Content</span>
                         {notes.map((note, i) => (
                             <div key={i} className='notesContentInner' contentEditable = {true} onBlur={(e) => setNotes([e.currentTarget.textContent, ...notes])}>
                                 {note}
@@ -61,7 +58,6 @@ const Notes = ({ date, setOpen }) => {
                         </div>
                     </div>}
                     {option === 2 && <div className='contentIn checkListContent'>
-                        <span className='checkListContent'>Checklist Content</span>
                         {checkList.map((check, i) => (
                             <div key={i} className='checkListContentInner' contentEditable = {true} onBlur={(e) => setCheckList([e.currentTarget.textContent, ...checkList])}>
                                 {check}

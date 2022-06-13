@@ -18,24 +18,38 @@ div.notesOption {
 }
 
 div.workout {
-    background-color: aliceblue;
+    background-color: #282c34cc;
+    color: white;
     padding: 0.5em;
     margin: 0.5em;
     cursor: pointer;
+    border-radius: 10px;
 }
 
 div.note {
-    background-color: aliceblue;
+    background-color: #282c34cc;
+    color: white;
     padding: 0.5em;
     margin: .5em;
     cursor: pointer;
+    border-radius: 10px;
 }
 
 div.checkList {
-    background-color: aliceblue;
+    background-color: #282c34cc;
+    color: white;
     padding: 0.5em;
     margin: .5em;
     cursor: pointer;
+    border-radius: 10px;
+}
+
+div.active {
+    background-color: rgb(119, 255, 82);
+    padding: 0.5em;
+    margin: .5em;
+    cursor: pointer;
+    border-radius: 10px;
 }
 
 div.contentIn {
@@ -50,18 +64,21 @@ div.workoutContentInner {
     font-size: large;
     color: #000;
     border-bottom: 1px solid rgba(0, 0, 0, 0.184);
+    max-width: 550px;
 }
 
 div.notesContentInner {
     font-size: large;
     color: #000;
     border-bottom: 1px solid rgba(0, 0, 0, 0.184);
+    max-width: 550px;
 }
 
 div.checkListContentInner {
     font-size: large;
     color: #000;
     border-bottom: 1px solid rgba(0, 0, 0, 0.184);
+    max-width: 550px;
 }
 
 div.Blank {
@@ -69,4 +86,18 @@ div.Blank {
     margin: .5em;
     cursor: pointer;
     border-bottom: 1px solid rgba(0, 0, 0, 0.184);
+    max-width: 550px;
+}
+
+button.close {
+    background-color: #ff4242fe;
+    border: none;
+    color: white;
+    padding: 0.5em;
+    margin: 0.5em;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: large;
+    font-weight: bolder;
+    width: 40px;
 }

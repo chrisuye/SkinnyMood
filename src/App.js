@@ -46,7 +46,7 @@ const App = () => {
               <div className='calendar-header-top'>
                   <h2>SkinnyMood</h2>
               </div>
-              <div className='calendar-header-bottom'>
+              { open ? '' : <div className='calendar-header-bottom'>
                   <select className='calendar-header-select' onChange={(e) => setMonth(months.indexOf(e.target.value))}>
                       <option selected= {month === 0 ? 'selected' :''} value='January'>January</option>
                       <option selected= {month === 1 ? 'selected' :''} value='February'>February</option>
@@ -75,6 +75,7 @@ const App = () => {
                       <option selected= {year === 2030 ? 'selected' :''} value='2030'>2030</option>
                   </select>
               </div>
+            }
           </div>
       <div className='App-Outer'>
           {open ? <Notes date={position} setOpen={setOpen}/> : 

@@ -4,6 +4,7 @@ h2 {
 .App {
   text-align: center;
   background-color: #282c34;
+  
 }
 
 .calendar {
@@ -16,12 +17,6 @@ h2 {
 .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
@@ -38,7 +33,7 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
 }
 
@@ -46,6 +41,37 @@ h2 {
   color: #61dafb;
 }
 
-@media only screen and (max-width: 450px) {
-  
+div.calendar-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+div.calendar-header-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+div.calendar-header-bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+select {
+  width: 100px;
+  height: 30px;
+  font-size: calc(5px + 2vmin);
+  border: 1px solid antiquewhite;
+  background-color: #282c34;
+  color: antiquewhite;
+  border-radius: 5px;
+  margin: 0.5em;
 }

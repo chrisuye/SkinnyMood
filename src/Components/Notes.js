@@ -9,39 +9,54 @@ const Notes = ({ date, setOpen }) => {
 
     const editSave = (content, index, option) => {
         if (option === 1) {
-            setNotes(notes.map((note, i) => {
-                if (i === index) {
-                    return {
-                        date : date,
-                        content : content
+            if (content) {
+                setNotes(notes.map((note, i) => {
+                    if (i === index) {
+                        return {
+                            date : date,
+                            content : content
+                        }
                     }
+                    return note
                 }
-                return note
+                ));
+            } else {
+                setNotes(notes.filter((_, i) => i !== index));
             }
-            ));
+            
         } else if (option === 0) {
-            setWorkout(workout.map((note, i) => {
-                if (i === index) {
-                    return {
-                        date : date,
-                        content : content
+            if (content) {
+                setWorkout(workout.map((note, i) => {
+                    if (i === index) {
+                        return {
+                            date : date,
+                            content : content
+                        }
                     }
+                    return note;
                 }
-                return note;
+                ));
+            } else {
+                setWorkout(workout.filter((_, i) => i !== index))
             }
-            ));
+            
         }
         else if (option === 2) {
-            setCheckList(checkList.map((note, i) => {
-                if (i === index) {
-                    return {
-                        date : date,
-                        note : content
+            if (content) {
+                setCheckList(checkList.map((note, i) => {
+                    if (i === index) {
+                        return {
+                            date : date,
+                            note : content
+                        }
                     }
+                    return note;
                 }
-                return note;
+                ));
+            } else {
+                setCheckList(checkList.filter((_, i) => i !== index))
             }
-            ));
+            
         }
     }
 
@@ -74,11 +89,13 @@ const Notes = ({ date, setOpen }) => {
                             </div>
                         ))}
                         <div className='workoutContentInner Blank' contentEditable={true} onBlur={(e) => {
-                            let temp = {
-                                date : date,
-                                content : e.currentTarget.textContent
+                            if (e.currentTarget.textContent) {
+                                let temp = {
+                                    date : date,
+                                    content : e.currentTarget.textContent
+                                }
+                                setWorkout([temp, ...workout])
                             }
-                            setWorkout([temp, ...workout])
                             e.currentTarget.textContent = '';
                         }}>
                         </div>
@@ -90,11 +107,13 @@ const Notes = ({ date, setOpen }) => {
                             </div>
                         ))}
                         <div className='notesContentInner Blank' contentEditable={true} onBlur={(e) => {
-                            let temp = {
-                                date : date,
-                                content : e.currentTarget.textContent
+                            if (e.currentTarget.textContent) {
+                                let temp = {
+                                    date : date,
+                                    content : e.currentTarget.textContent
+                                }
+                                setNotes([temp, ...notes])
                             }
-                            setNotes([temp, ...notes])
                             e.currentTarget.textContent = '';
                         }
                         }>
@@ -107,11 +126,13 @@ const Notes = ({ date, setOpen }) => {
                             </div>
                         ))}
                         <div className='checkListContentInner Blank' contentEditable={true} onBlur={(e) => {
-                            let temp = {
-                                date : date,
-                                content : e.currentTarget.textContent
+                            if (e.currentTarget.textContent) {
+                                let temp = {
+                                    date : date,
+                                    content : e.currentTarget.textContent
+                                }
+                                setCheckList([temp, ...checkList])
                             }
-                            setCheckList([temp, ...checkList])
                             e.currentTarget.textContent = '';
                         }
                         }>

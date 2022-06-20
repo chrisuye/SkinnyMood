@@ -45,11 +45,13 @@ div.checkList {
 }
 
 div.active {
-    background-color: rgb(119, 255, 82);
     padding: 0.5em;
     margin: .5em;
     cursor: pointer;
     border-radius: 10px;
+    font-style: italic;
+    font-weight: bolder;
+    text-decoration: underline;
 }
 
 div.contentIn {
@@ -96,14 +98,14 @@ div.Blank {
 }
 
 button.close {
-    background-color: #ff4242fe;
+    background-color: transparent;
     border: none;
-    color: white;
+    color: #282c34;
     padding: 0.5em;
     margin: 0.5em;
     cursor: pointer;
     border-radius: 5px;
-    font-size: large;
+    font-size: larger;
     font-weight: bolder;
     width: 40px;
 }
